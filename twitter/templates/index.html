@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Twitter start page
+{% endblock %}
+
+{% block content %}
+
+<h1 class ="text-center mt-4">Welcome on twitter </h1>
+
+<div class ="text-center mt-5 ">
+    <img src="https://cdn.mos.cms.futurecdn.net/z3bn6deaxmrjmQHNEkpcZE-320-80.jpg" alt="">
+</div>
+
+
+<div class ="text-center mt-5">
+    
+    <a href="{% url "twitt_list" %}" class="btn btn-primary">click me! for Start</a>
+</div>
+
+
+{% endblock %}

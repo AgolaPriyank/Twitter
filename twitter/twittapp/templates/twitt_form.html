@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+twitt form page
+{% endblock %}
+
+{% block content %}
+
+<h1 class ="text-center mt-4">Welcome to twitter's Page </h1>
+
+<h2 class ="text-center mt-4" >
+    {% if form.instance.pk  %}
+    Edit Twitt
+    {% else %}
+    Create New Twitt
+    {% endif %}
+
+</h2>
+
+<div class ="text-center mt-4">
+    <form method="post" enctype="multipart/form-data" class="form">
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <button class="btn btn-warning mt-3" type="submit">Submit</button>
+        
+    </form>
+
+</div>
+
+<div class="text-center mt-4">
+    <a href="{% url "twitt_list" %}" class="btn btn-success">Back To Twitt List</a>
+</div>
+
+{% endblock %}

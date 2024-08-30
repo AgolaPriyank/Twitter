@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+twitt list page
+{% endblock %}
+
+{% block content %}
+
+<h1 class ="text-center mt-4">Welcome to twitter's Home Page </h1>
+
+<div class="CreateButten">
+    <a class="btn btn-primary mb-5" href="{% url "twitt_create" %}" > 
+    Create New Twitt
+    </a>
+</div>
+
+<div class="container row gap-3">
+
+    {% for twitt in twitts %}
+    <div class="card" style="width: 18rem;">
+        <img src="{{twitt.photo.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{twitt.user.username}}</h5>
+          <p class="card-text">{{twitt.text}}</p>
+          {% if twitt.user == user %}
+          <a href="{% url "twitt_edit" twitt.id %}" class="btn btn-primary">Edit</a>
+          <a href="{% url "twitt_delete" twitt.id %}" class="btn btn-danger m-lg-3">Delete</a>
+          {% endif %}
+          
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+
+{% endblock %}
